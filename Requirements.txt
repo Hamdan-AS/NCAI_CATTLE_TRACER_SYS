@@ -1,32 +1,11 @@
-# ── CattleTrack Pro — Python dependencies ─────────────────────────────────────
-#
-# IMPORTANT: opencv-python-headless is REQUIRED for server/cloud deployment.
-#   Standard opencv-python tries to open a GUI window and CRASHES on Linux
-#   servers that have no display (X server).  The headless variant strips
-#   all GUI code and works perfectly in Streamlit Cloud / Docker / CI.
-#
-# System-level libraries (libGL, libglib2.0) are declared in packages.txt.
-# ─────────────────────────────────────────────────────────────────────────────
-# ── Dashboard framework ───────────────────────────────────────────────────────
-streamlit>=1.35.0
-# ── Computer vision ───────────────────────────────────────────────────────────
-# DO NOT swap back to opencv-python — it will crash on Streamlit Cloud.
-opencv-python-headless>=4.8.0
-# ── YOLOv8 (includes ByteTrack tracker) ──────────────────────────────────────
-ultralytics>=8.2.0
-# ── PyTorch — CPU build (no CUDA drivers on Streamlit Cloud free tier) ────────
-# For local GPU builds run separately:
-#   pip install torch torchvision --index-url https://download.pytorch.org/whl/cu121
+--extra-index-url https://download.pytorch.org/whl/cpu
 torch>=2.1.0
 torchvision>=0.16.0
-# ── OCR ───────────────────────────────────────────────────────────────────────
-# EasyOCR downloads language models on first use (~280 MB).
-# If Streamlit Cloud memory is tight, swap for rapidocr-onnxruntime (lighter).
+opencv-python-headless>=4.8.0
+streamlit>=1.35.0
+ultralytics>=8.2.0
 easyocr>=1.7.0
-# ── Data ─────────────────────────────────────────────────────────────────────
 pandas>=2.0.0
 numpy>=1.24.0
-# ── Plotting ──────────────────────────────────────────────────────────────────
 plotly>=5.18.0
-# ── Image I/O ─────────────────────────────────────────────────────────────────
 Pillow>=10.0.0
